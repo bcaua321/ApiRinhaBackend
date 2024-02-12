@@ -4,13 +4,13 @@ WORKDIR /source
 EXPOSE 80
 
 # copy csproj and restore as distinct layers
-COPY ["api/api.csproj", "api/"]
-COPY ["api/nuget.config", "api/"]
-RUN dotnet restore "api/api.csproj" -r linux-$TARGETARCH
+COPY "api.csproj" .
+COPY "nuget.config" .
+RUN dotnet restore -r linux-$TARGETARCH
 
 # copy and publish app and libraries
 COPY . .
-RUN dotnet publish "api/api.csproj" -r linux-$TARGETARCH  -o /app
+RUN dotnet publish -r linux-$TARGETARCH  -o /app
 RUN rm /app/*.dbg /app/*.Development.json
 
 # final stage/image

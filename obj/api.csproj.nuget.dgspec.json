@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bcaua\\projects\\RinhaBackend\\api\\api.csproj": {}
+    "c:\\Users\\bcaua\\projects\\ApiRinhaBackend\\api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bcaua\\projects\\RinhaBackend\\api\\api.csproj": {
+    "c:\\Users\\bcaua\\projects\\ApiRinhaBackend\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bcaua\\projects\\RinhaBackend\\api\\api.csproj",
+        "projectUniqueName": "c:\\Users\\bcaua\\projects\\ApiRinhaBackend\\api.csproj",
         "projectName": "api",
-        "projectPath": "C:\\Users\\bcaua\\projects\\RinhaBackend\\api\\api.csproj",
+        "projectPath": "c:\\Users\\bcaua\\projects\\ApiRinhaBackend\\api.csproj",
         "packagesPath": "C:\\Users\\bcaua\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bcaua\\projects\\RinhaBackend\\api\\obj\\",
+        "outputPath": "c:\\Users\\bcaua\\projects\\ApiRinhaBackend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\bcaua\\projects\\RinhaBackend\\api\\NuGet.Config",
+          "c:\\Users\\bcaua\\projects\\ApiRinhaBackend\\NuGet.Config",
           "C:\\Users\\bcaua\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -45,18 +45,6 @@
               "target": "Package",
               "version": "[2.1.28, )"
             },
-            "Microsoft.DotNet.ILCompiler": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.0, )",
-              "autoReferenced": true
-            },
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.0, )",
-              "autoReferenced": true
-            },
             "Npgsql": {
               "target": "Package",
               "version": "[8.0.1, )"
@@ -73,12 +61,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "runtime.win-x64.Microsoft.DotNet.ILCompiler",
-              "version": "[8.0.0, 8.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
