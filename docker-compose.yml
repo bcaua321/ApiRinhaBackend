@@ -2,7 +2,7 @@ version: "3.5"
 
 services:
   api01: &api
-    image: bcaua/api:latest
+    image: bcaua/testeapi
     container_name: api01
     environment:
       - ASPNETCORE_URLS=http://+:3000
@@ -11,8 +11,9 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.3"
-          memory: "100MB"
+          cpus: "0.25"
+          memory: "90MB"
+
 
   api02:
     # Essa sintaxe reusa o que foi declarado em 'api01'.
@@ -32,7 +33,7 @@ services:
       resources:
         limits:
           cpus: "0.2"
-          memory: "60MB"
+          memory: "70MB"
     
   db:
     image: postgres:latest
@@ -49,8 +50,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.7"
-          memory: "290MB"
+          cpus: "0.8"
+          memory: "300MB"
 
 networks:
   default:
