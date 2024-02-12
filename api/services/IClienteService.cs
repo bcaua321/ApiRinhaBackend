@@ -4,7 +4,7 @@ namespace api.services
 {
     public interface IClienteService
     {
-        Task<IResult> Transacao(int id, TransacaoRequest? transacao);
+        Task<IResult> Transacao(int id, TransacaoRequest transacao);
         Task<IResult> Extrato(int id);
     }
 }
