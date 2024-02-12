@@ -1,5 +1,6 @@
 using api.dtos;
 using api.services;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateSlimBuilder(args);
 {
@@ -8,26 +9,19 @@ var builder = WebApplication.CreateSlimBuilder(args);
         options.SerializerOptions.TypeInfoResolverChain.Insert(0, AppJsonSerializerContext.Default);
     });
 
+    builder.Services.AddDistributedMemoryCache();
     builder.Services.AddSingleton<IClienteService, ClientesService>();
 }
 
 var app = builder.Build();
 {
     app.MapPost("/clientes/{id}/transacoes", 
-        async (int id, IClienteService clientesService, HttpRequest request) => {
-            TransacaoRequest? transacaoRequest = null;
-
-            try
-            {
-                transacaoRequest = await request.ReadFromJsonAsync<TransacaoRequest>();
-            }
-            catch(Exception) { }
-
+        async ([FromRoute]int id, [FromBody]TransacaoRequest transacaoRequest,  [FromServices]IClienteService clientesService) => {
             return await clientesService.Transacao(id, transacaoRequest);
         });
 
     app.MapGet("/clientes/{id}/extrato", 
-        async (int id, IClienteService clientesService) => {
+        async ([FromRoute]int id, [FromServices]IClienteService clientesService) => {
             return await clientesService.Extrato(id);
         });
 
