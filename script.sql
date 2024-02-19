@@ -37,6 +37,17 @@ CREATE OR REPLACE PROCEDURE create_transacao_cliente(
 LANGUAGE plpgsql
 AS $$
 BEGIN
+    -- Todo: Tornar essa store procedure resiliente a concorrência, a forma mais fácil seria implementar uma estratégia pessimista.
+    -- Para isso existem duas formas uma delas é realizar um select com a opção "for update" para opter o saldo atual do cliente e só então calcular o novo saldo. A diretiva "for update" vai garantir que nenhuma outra requisição da procedure possa alterar esse cliente enquanto essa procedure está sendo executada.
+    -- Uma outra forma seria usar um pg_advisory_lock(cliente_id), essa abordagem tem a mesma finalidade mas recomendo procurar a documentação.
+    -- Exemplo de select com bloqueio na linha 
+    -- select saldo from clientes where id = cliente_id for update
+
+    -- Esse bloqueio vai permanecer até que a procedure termine sua execução, seja com sucesso ou em caso de erro.
+
+    -- Nessa abordagem a procedure não recebe por parametro o novo valor de saldo, esse valor precisa ser calculado após o 'select for update'.
+
+
     UPDATE clientes
     SET saldo = valor_atual
     WHERE id = cliente_id;
